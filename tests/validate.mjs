@@ -13,7 +13,7 @@ const manifest = JSON.parse(manifestText);
 
 assert.equal(manual.machine.machineId, "202");
 assert.equal(manual.machine.machineName, "202激光焊机");
-assert.equal(manual.machine.manualVersion, "0.2.0");
+assert.equal(manual.machine.manualVersion, "0.2.1");
 assert.deepEqual(manual.faults.map((item) => item.id).sort(), ["clamp-platform-blocked", "laser-source-query"]);
 for (const item of manual.faults) {
   assert.equal(item.steps.length, 6);
@@ -26,7 +26,7 @@ assert.deepEqual(manual.maintenance, []);
 assert.deepEqual(manual.safety, []);
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-202-v12"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-202-v13"/);
 assert.match(html, /id="currentTime"/);
 assert.match(html, /system-time\.js\?v=1/);
 assert.match(sw, /system-time\.js\?v=1/);

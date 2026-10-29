@@ -4,17 +4,11 @@
     "machineId": "202",
     "machineName": "202激光焊机",
     "manualTitle": "操作工快速处置手册",
-    "manualVersion": "0.2.0",
-    "contentStatus": "已录入2项异常处理，待202现场确认",
+    "manualVersion": "0.2.1",
+    "contentStatus": "已录入2项异常处理",
     "lastUpdated": "2026-10-29"
   },
-  "notices": [
-    {
-      "level": "warning",
-      "title": "待202现场确认",
-      "body": "以下手顺和图片复制自401焊机，仅供对照。202设备画面、参数和安全条件须经现场责任人确认后使用。"
-    }
-  ],
+  "notices": [],
   "faults": [
     {
       "id": "laser-source-query",
@@ -137,4 +131,3 @@
   "maintenance": [],
   "safety": []
 }
-

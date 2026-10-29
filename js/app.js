@@ -53,7 +53,8 @@
   function buildEntry(item) {
     const details = document.createElement("details");
     details.className = "manual-entry";
-    details.dataset.risk = item.risk || "medium";
+    const isFault = state.manual && state.manual.faults.includes(item);
+    if (!isFault) details.dataset.risk = item.risk || "medium";
     const summary = document.createElement("summary");
     const risk = document.createElement("span");
     risk.className = `risk ${item.risk || "medium"}`;
@@ -64,7 +65,7 @@
 
     const body = document.createElement("div");
     body.className = "entry-body";
-    body.append(risk);
+    if (!isFault) body.append(risk);
     if (item.summary) {
       const paragraph = document.createElement("p");
       paragraph.append(text(item.summary));
