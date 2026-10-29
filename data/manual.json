@@ -4,7 +4,7 @@
     "machineId": "202",
     "machineName": "202激光焊机",
     "manualTitle": "操作工快速处置手册",
-    "manualVersion": "0.3.0",
+    "manualVersion": "0.3.1",
     "contentStatus": "已录入2项异常处理、2项日常维护",
     "lastUpdated": "2026-10-29"
   },
@@ -32,7 +32,7 @@
       "steps": [
         {
           "title": "进入激光画面",
-          "text": "在总界面右侧点击“激光画面”按钮，进入激光源 LaserBOF 画面。",
+          "text": "激光源画面只在现场操作面板上，如遇异常请移步现场操作台。\n在总界面右侧点击“激光画面”按钮，进入激光源 LaserBOF 画面。",
           "image": "./assets/images/laser-source-query-step-1-baohan.webp",
           "alt": "进入激光画面"
         },
