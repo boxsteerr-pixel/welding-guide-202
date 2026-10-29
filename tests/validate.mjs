@@ -13,13 +13,20 @@ const manifest = JSON.parse(manifestText);
 
 assert.equal(manual.machine.machineId, "202");
 assert.equal(manual.machine.machineName, "202激光焊机");
-assert.equal(manual.machine.manualVersion, "0.1.0");
-assert.deepEqual(manual.faults, []);
+assert.equal(manual.machine.manualVersion, "0.2.0");
+assert.deepEqual(manual.faults.map((item) => item.id).sort(), ["clamp-platform-blocked", "laser-source-query"]);
+for (const item of manual.faults) {
+  assert.equal(item.steps.length, 6);
+  for (const step of item.steps) {
+    assert.ok(step.title && step.text && step.image);
+    await stat(path.join(root, step.image));
+  }
+}
 assert.deepEqual(manual.maintenance, []);
 assert.deepEqual(manual.safety, []);
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-202-v10"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-202-v12"/);
 assert.match(html, /id="currentTime"/);
 assert.match(html, /system-time\.js\?v=1/);
 assert.match(sw, /system-time\.js\?v=1/);
@@ -33,3 +40,4 @@ const combined = `${html}\n${app}\n${dataText}\n${manifestText}\n${sw}`;
 assert.doesNotMatch(combined, /boxsteerr-pixel\.github\.io\/welding-guide\//, "不得引用101线上资源");
 assert.doesNotMatch(combined, /(?:src|href)=["']\/welding-guide\//, "不得硬编码101路径");
 console.log("welding-guide-202 validation: PASS");
+

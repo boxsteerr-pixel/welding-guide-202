@@ -1,4 +1,4 @@
-const CACHE_NAME = "welding-guide-202-v11";
+const CACHE_NAME = "welding-guide-202-v12";
 const CACHE_PREFIX = "welding-guide-202-";
 const APP_ROOT = new URL("./", self.location.href);
 const CORE_ASSETS = [
@@ -75,3 +75,4 @@ self.addEventListener("fetch", function (event) {
   }
   if (["image", "font", "video", "audio"].includes(request.destination)) event.respondWith(cacheFirst(request));
 });
+
