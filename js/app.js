@@ -54,7 +54,8 @@
     const details = document.createElement("details");
     details.className = "manual-entry";
     const isFault = state.manual && state.manual.faults.includes(item);
-    if (!isFault) details.dataset.risk = item.risk || "medium";
+    const hideRisk = isFault || ["segment-focus-check", "focus-position-adjustment"].includes(item.id);
+    if (!hideRisk) details.dataset.risk = item.risk || "medium";
     const summary = document.createElement("summary");
     const risk = document.createElement("span");
     risk.className = `risk ${item.risk || "medium"}`;
@@ -65,7 +66,7 @@
 
     const body = document.createElement("div");
     body.className = "entry-body";
-    if (!isFault) body.append(risk);
+    if (!hideRisk) body.append(risk);
     if (item.summary) {
       const paragraph = document.createElement("p");
       paragraph.append(text(item.summary));

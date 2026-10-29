@@ -27,7 +27,7 @@ for (const item of manual.maintenance) { assert.equal(item.steps.length, 3); for
 assert.deepEqual(manual.safety, []);
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-202-v14"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-202-v15"/);
 assert.match(html, /id="currentTime"/);
 assert.match(html, /system-time\.js\?v=1/);
 assert.match(sw, /system-time\.js\?v=1/);
