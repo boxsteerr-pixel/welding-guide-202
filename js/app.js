@@ -55,16 +55,18 @@
     details.className = "manual-entry";
     details.dataset.risk = item.risk || "medium";
     const summary = document.createElement("summary");
-    const risk = document.createElement("span");
-    risk.className = `risk ${item.risk || "medium"}`;
-    risk.append(text(riskLabels[item.risk] || riskLabels.medium));
     const title = document.createElement("span");
     title.append(text(item.title || "未命名项目"));
     summary.append(title);
 
     const body = document.createElement("div");
     body.className = "entry-body";
-    body.append(risk);
+    if (item.risk && riskLabels[item.risk]) {
+      const risk = document.createElement("span");
+      risk.className = `risk ${item.risk}`;
+      risk.append(text(riskLabels[item.risk]));
+      body.append(risk);
+    }
     if (item.summary) {
       const paragraph = document.createElement("p");
       paragraph.append(text(item.summary));

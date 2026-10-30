@@ -13,13 +13,25 @@ const manifest = JSON.parse(manifestText);
 
 assert.equal(manual.machine.machineId, "202");
 assert.equal(manual.machine.machineName, "202激光焊机");
-assert.equal(manual.machine.manualVersion, "0.1.0");
-assert.deepEqual(manual.faults, []);
+assert.equal(manual.machine.manualVersion, "0.2.0");
+assert.equal(manual.faults.length, 1);
+const force = manual.faults[0];
+assert.equal(force.id, "signal-force-screen");
+assert.equal(force.steps.length, 4);
+assert.match(force.steps[1].text, /灰色变为红色/);
+assert.match(force.steps[3].text, /红色变为灰色/);
+assert.match(force.checks.join(""), /每次目视跟踪/);
+for (const step of force.steps) {
+  if (step.image) {
+    await stat(path.join(root, step.image));
+    assert.ok(sw.includes(step.image), "手顺原图必须支持离线缓存");
+  }
+}
 assert.deepEqual(manual.maintenance, []);
 assert.deepEqual(manual.safety, []);
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-202-v10"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-202-v12"/);
 assert.match(html, /id="currentTime"/);
 assert.match(html, /system-time\.js\?v=1/);
 assert.match(sw, /system-time\.js\?v=1/);
