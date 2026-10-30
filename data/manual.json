@@ -4,22 +4,144 @@
     "machineId": "202",
     "machineName": "202激光焊机",
     "manualTitle": "操作工快速处置手册",
-    "manualVersion": "0.2.0",
-    "contentStatus": "已录入1项异常处理",
+    "manualVersion": "0.4.0",
+    "contentStatus": "已录入3项异常处理、2项日常维护",
     "lastUpdated": "2026-10-30"
   },
-  "notices": [
-    {
-      "level": "warning",
-      "title": "内容范围",
-      "body": "当前已录入信号强制画面操作手顺；日常维护和安全事项待录入。操作须遵守现场审核确认的规程。"
-    }
-  ],
+  "notices": [],
   "faults": [
+    {
+      "id": "laser-source-query",
+      "title": "激光源故障查询",
+      "summary": "激光源报警、激光就绪异常、联锁未满足",
+      "risk": "high",
+      "keywords": [
+        "激光源",
+        "故障查询",
+        "Diagnostics",
+        "报警"
+      ],
+      "checks": [
+        "异常类别：激光系统 / 电气联锁 / 冷却联锁",
+        "报警提示：激光源报警、激光就绪异常、联锁未满足",
+        "需要通知：班长、电气、点检、激光专业人员"
+      ],
+      "stopConditions": [
+        "禁止继续生产"
+      ],
+      "steps": [
+        {
+          "title": "进入激光画面",
+          "text": "激光源画面只在现场操作面板上，如遇异常请移步现场操作台。\n在总界面右侧点击“激光画面”按钮，进入激光源 LaserBOF 画面。",
+          "image": "./assets/images/laser-source-query-step-1-baohan.webp",
+          "alt": "进入激光画面"
+        },
+        {
+          "title": "进入 Diagnostics 诊断页面",
+          "text": "在 LaserBOF 画面右侧点击“Diagnostics”按钮，进入诊断页面。",
+          "image": "./assets/images/laser-source-query-step-2.jpg",
+          "alt": "进入 Diagnostics 诊断页面"
+        },
+        {
+          "title": "查看当前报警 Pending messages",
+          "text": "在诊断页面顶部点击“Pending messages”，查看当前未处理报警。",
+          "image": "./assets/images/laser-source-query-step-3.jpg",
+          "alt": "查看当前报警 Pending messages"
+        },
+        {
+          "title": "拍摄即时报警信息",
+          "text": "拍摄即时报警信息，并发送给点检人员确认。",
+          "image": "./assets/images/laser-source-query-step-4.jpg",
+          "alt": "拍摄即时报警信息"
+        },
+        {
+          "title": "查询历史报警 History of messages",
+          "text": "需要追溯时点击“History of messages”，查询历史报警信息。",
+          "image": "./assets/images/laser-source-query-step-5.jpg",
+          "alt": "查询历史报警 History of messages"
+        },
+        {
+          "title": "拍照后进行故障复位",
+          "text": "确认即时报警信息已拍照留存后，点击左侧 Error Reset / 故障复位按钮进行复位。",
+          "image": "./assets/images/laser-source-query-step-6.jpg",
+          "alt": "拍照后进行故障复位"
+        }
+      ]
+    },
+    {
+      "id": "clamp-platform-blocked",
+      "title": "夹紧台堵塞故障",
+      "summary": "夹紧台堵塞 / 夹紧台位置异常",
+      "risk": "high",
+      "keywords": [
+        "夹紧台",
+        "堵塞",
+        "夹钳台",
+        "位置异常"
+      ],
+      "checks": [
+        "异常类别：夹紧台控制 / 出入口夹钳台",
+        "报警提示：夹紧台堵塞 / 夹紧台位置异常",
+        "需要通知：班长、点检",
+        "按以下画面步骤处理；调整后仍无法消除故障时，停止处理并通知点检。"
+      ],
+      "stopConditions": [
+        "禁止继续生产"
+      ],
+      "steps": [
+        {
+          "title": "进入夹钳台控制器",
+          "text": "按照报警画面，选择“入口夹钳台控制器”或“出口夹钳台控制器”。",
+          "image": "./assets/images/clamp-platform-step-1-baohan.webp",
+          "alt": "进入夹钳台控制器"
+        },
+        {
+          "title": "进入调整模式",
+          "text": "进入画面后，点击左下角“调整模式”按钮，按钮变为绿色后进入调整模式。",
+          "image": "./assets/images/clamp-platform-step-2-baohan.webp",
+          "alt": "进入调整模式"
+        },
+        {
+          "title": "比对两侧实际数值",
+          "text": "观察入口、出口两侧实际编码器数值，确认两侧数值差异。",
+          "image": "./assets/images/clamp-platform-step-3-baohan.webp",
+          "alt": "比对两侧实际数值"
+        },
+        {
+          "title": "锁定需要保持的一侧",
+          "text": "根据数值，点击单侧“锁定轴 LOCK”进行锁轴；仅对未锁轴侧进行后续调整。",
+          "image": "./assets/images/clamp-platform-step-4-baohan.webp",
+          "alt": "锁定需要保持的一侧"
+        },
+        {
+          "title": "微调未锁轴侧位置",
+          "text": "对未锁轴处夹紧台进行微调，直至两侧实际值接近，差值约 1 mm。",
+          "image": "./assets/images/clamp-platform-step-5-baohan.webp",
+          "alt": "微调未锁轴侧位置"
+        },
+        {
+          "title": "取消锁定并恢复动作",
+          "text": "数值调整完成后，取消锁定轴、取消调整模式；回到出入口画面，点击夹紧台位置前后移动，确认故障消除。",
+          "image": "./assets/images/clamp-platform-step-6-baohan.webp",
+          "alt": "取消锁定并恢复动作"
+        }
+      ]
+    },
     {
       "id": "signal-force-screen",
       "title": "信号强制画面操作手顺",
-      "keywords": ["信号强制", "强制恢复", "检测信号不到位", "连锁", "联锁", "对中", "卡带钢", "HOME", "夹钳", "限位监测"],
+      "keywords": [
+        "信号强制",
+        "强制恢复",
+        "检测信号不到位",
+        "连锁",
+        "联锁",
+        "对中",
+        "卡带钢",
+        "HOME",
+        "夹钳",
+        "限位监测"
+      ],
       "summary": "用于部件实际动作到位但检测信号不到位，或异常处理受部件连锁限制的情况。按附件手顺确认使用条件、强制信号，并在异常处理完成后取消强制。",
       "checks": [
         "使用条件一：焊机部件实际动作到位，但检测信号不到位。强制该信号时，同时通知点检进厂处理。",
@@ -48,6 +170,68 @@
       ]
     }
   ],
-  "maintenance": [],
+  "maintenance": [
+    {
+      "id": "segment-focus-check",
+      "title": "利用段焊进行焦点位置检查",
+      "summary": "适用人员：经过授权和培训的操作人员。本手顺为本地待审核草稿，焦点检查的具体操作尚待现场确认。",
+      "keywords": [
+        "段焊",
+        "焦点位置",
+        "激光点射模式"
+      ],
+      "steps": [
+        {
+          "title": "进入设备调整画面",
+          "text": "在焊机“概览”画面中，找到维修用户区域，点击“设备调整”按钮。",
+          "image": "./assets/images/focus-check-overview.webp",
+          "alt": "在概览画面中选择设备调整按钮（原始现场标注图）"
+        },
+        {
+          "title": "进入段焊模式",
+          "text": "在“设备调整”画面的“选择激光”区域，找到“激光点射模式”。点击对应开关，使其由红色“关”变为绿色“开”，焊机进入段焊模式。\n红色“关” → 绿色“开”：进入段焊模式\n模式切换不等于允许激光发射。实际段焊必须满足设备联锁、安全条件和经批准的现场操作规程。",
+          "image": "./assets/images/focus-check-adjustment.webp",
+          "alt": "设备调整画面：激光点射模式开启与关闭（原始现场标注图）"
+        },
+        {
+          "title": "退出段焊模式",
+          "text": "段焊结束后，在“设备调整”画面中再次点击“激光点射模式”，使对应开关由绿色“开”恢复为红色“关”，退出段焊模式，恢复正常焊接模式。\n绿色“开” → 红色“关”：退出段焊模式。确认HMI显示为红色“关”。\n退出段焊模式不代表设备已自动满足正常生产的全部启动条件，仍需按现场规程确认。",
+          "image": "./assets/images/focus-check-adjustment.webp",
+          "alt": "设备调整画面：段焊结束后将激光点射模式恢复为红色“关”"
+        }
+      ]
+    },
+    {
+      "id": "focus-position-adjustment",
+      "title": "修改焦点位置",
+      "summary": "适用设备：401激光焊机。焊接焦点位置发生偏移，需要根据检查结果对操作侧或传动侧焦点位置进行修正时使用。本操作涉及设备补偿参数，应由经过授权的人员执行。",
+      "keywords": [
+        "焦点位置",
+        "横向补偿",
+        "剪刀调整",
+        "夹钳台补偿"
+      ],
+      "steps": [
+        {
+          "title": "进入剪刀调整画面",
+          "text": "在焊机“概览”画面中，找到“维修用户”区域，点击“剪刀调整”按钮。",
+          "image": "./assets/images/focus-adjustment-entry.webp",
+          "alt": "在概览画面中选择“剪刀调整”按钮"
+        },
+        {
+          "title": "确认焦点偏移方向",
+          "text": "根据焦点检查结果，分别确认操作侧和传动侧的焦点位置。以下方向依据现场图片标注整理，正式使用前需核对401设备的实际补偿逻辑。\n焦点偏向出口 → 增大对应侧横向补偿数值（待现场核对）\n焦点偏向入口 → 减小对应侧横向补偿数值（待现场核对）\n操作侧与传动侧应分别判断，不得未经确认直接同时修改两侧参数。\n原HMI截图示例：操作侧+0.40 mm、传动侧+0.50 mm，仅为截图示例，不代表标准值或目标值。",
+          "image": "./assets/images/focus-adjustment-parameters.webp",
+          "alt": "横向补偿值：操作侧、传动侧及现场标注的调整方向"
+        },
+        {
+          "title": "接受补偿值",
+          "text": "原图标注：修改参数后，需点击“接受补偿值”，修改才能生效。",
+          "image": "./assets/images/focus-adjustment-accept.webp",
+          "alt": "原始现场标注：“接受补偿值”确认按钮"
+        }
+      ]
+    }
+  ],
   "safety": []
 }

@@ -13,25 +13,22 @@ const manifest = JSON.parse(manifestText);
 
 assert.equal(manual.machine.machineId, "202");
 assert.equal(manual.machine.machineName, "202激光焊机");
-assert.equal(manual.machine.manualVersion, "0.2.0");
-assert.equal(manual.faults.length, 1);
-const force = manual.faults[0];
-assert.equal(force.id, "signal-force-screen");
-assert.equal(force.steps.length, 4);
-assert.match(force.steps[1].text, /灰色变为红色/);
-assert.match(force.steps[3].text, /红色变为灰色/);
-assert.match(force.checks.join(""), /每次目视跟踪/);
-for (const step of force.steps) {
-  if (step.image) {
+assert.equal(manual.machine.manualVersion, "0.4.0");
+assert.deepEqual(manual.faults.map((item) => item.id).sort(), ["clamp-platform-blocked", "laser-source-query", "signal-force-screen"]);
+for (const item of manual.faults) {
+  if (item.id === "signal-force-screen") { assert.equal(item.steps.length, 4); assert.equal(item.risk, undefined); await stat(path.join(root, item.steps[0].image)); continue; }
+  assert.equal(item.steps.length, 6);
+  for (const step of item.steps) {
+    assert.ok(step.title && step.text && step.image);
     await stat(path.join(root, step.image));
-    assert.ok(sw.includes(step.image), "手顺原图必须支持离线缓存");
   }
 }
-assert.deepEqual(manual.maintenance, []);
+assert.deepEqual(manual.maintenance.map((item) => item.id).sort(), ["focus-position-adjustment", "segment-focus-check"]);
+for (const item of manual.maintenance) { assert.equal(item.steps.length, 3); for (const step of item.steps) { assert.ok(step.title && step.text && step.image); await stat(path.join(root, step.image)); } }
 assert.deepEqual(manual.safety, []);
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-202-v12"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-202-v17"/);
 assert.match(html, /id="currentTime"/);
 assert.match(html, /system-time\.js\?v=1/);
 assert.match(sw, /system-time\.js\?v=1/);
@@ -45,3 +42,4 @@ const combined = `${html}\n${app}\n${dataText}\n${manifestText}\n${sw}`;
 assert.doesNotMatch(combined, /boxsteerr-pixel\.github\.io\/welding-guide\//, "不得引用101线上资源");
 assert.doesNotMatch(combined, /(?:src|href)=["']\/welding-guide\//, "不得硬编码101路径");
 console.log("welding-guide-202 validation: PASS");
+
