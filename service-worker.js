@@ -1,7 +1,9 @@
-const CACHE_NAME = "welding-guide-202-v19";
+const CACHE_NAME = "welding-guide-202-v20";
 const CACHE_PREFIX = "welding-guide-202-";
 const APP_ROOT = new URL("./", self.location.href);
 const CORE_ASSETS = [
+  "./css/pwa-update.css?v=1",
+  "./js/pwa-update.js?v=1",
   "./css/mobile-header.css?v=2",
   "./js/system-time.js?v=1",
   "./",
@@ -77,3 +79,7 @@ self.addEventListener("fetch", function (event) {
   if (["image", "font", "video", "audio"].includes(request.destination)) event.respondWith(cacheFirst(request));
 });
 
+
+self.addEventListener("message", function (event) {
+  if (event.data && event.data.type === "SKIP_WAITING") self.skipWaiting();
+});
