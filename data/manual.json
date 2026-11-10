@@ -4,7 +4,7 @@
     "machineId": "202",
     "machineName": "202激光焊机",
     "manualTitle": "操作工快速处置手册",
-    "manualVersion": "0.4.0",
+    "manualVersion": "0.4.1",
     "contentStatus": "已录入3项异常处理、2项日常维护",
     "lastUpdated": "2026-10-30"
   },
@@ -152,7 +152,7 @@
         {
           "title": "确认需要强制的信号位置",
           "text": "在信号强制画面确定需要强制的信号位置。配图为附件现场原图，红色表示限位信号已处理，灰色表示没有处理；图中状态不能代替现场实际状态确认。",
-          "image": "./assets/images/signal-force-screen.png",
+          "image": "./assets/images/signal-force-screen-lossless-v1.webp",
           "alt": "附件原图：C202焊机限位监测画面，各信号右侧为处理方框，顶部标注红色表示限位信号已处理、灰色表示没有处理"
         },
         {
