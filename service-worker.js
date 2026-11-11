@@ -1,4 +1,4 @@
-const CACHE_NAME = "welding-guide-202-v21";
+const CACHE_NAME = "welding-guide-202-v22";
 const CACHE_PREFIX = "welding-guide-202-";
 const APP_ROOT = new URL("./", self.location.href);
 const CORE_ASSETS = [
@@ -10,9 +10,9 @@ const CORE_ASSETS = [
   "./index.html",
   "./css/home-link.css?v=5",
   "./css/style.css",
-  "./css/style.css?v=8",
+  "./css/style.css?v=9",
   "./js/app.js",
-  "./js/app.js?v=13",
+  "./js/app.js?v=14",
   "./js/update-state.js?v=2",
   "./data/manual.json",
   "./assets/images/signal-force-screen-lossless-v1.webp",
