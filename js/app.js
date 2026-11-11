@@ -81,7 +81,8 @@
         card.append(strong, paragraph);
         if (step.image) {
           const image = document.createElement("img");
-          image.src = step.image;
+          image.dataset.originalSrc = step.imagePreview ? step.image : "";
+          image.src = step.imagePreview || step.image;
           image.alt = step.alt || step.title || item.title || "操作步骤图片";
           image.loading = "lazy";
           image.addEventListener("click", function () { openImage(image); });
@@ -264,6 +265,13 @@
     imageContext = { source: source, x: window.scrollX, y: window.scrollY };
     imageHistoryClosing = false;
     modalImage.src = source.currentSrc || source.src;
+    if (source.dataset.originalSrc) {
+      const original = new Image();
+      original.onload = function () {
+        if (!modal.hidden && imageContext && imageContext.source === source) modalImage.src = original.src;
+      };
+      original.src = source.dataset.originalSrc;
+    }
     modalImage.alt = source.alt;
     modal.hidden = false;
     document.body.classList.add("modal-open");

@@ -93,36 +93,42 @@
           "title": "进入夹钳台控制器",
           "text": "按照报警画面，选择“入口夹钳台控制器”或“出口夹钳台控制器”。",
           "image": "./assets/images/clamp-platform-step-1-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-1-mobile-v2.webp",
           "alt": "进入夹钳台控制器"
         },
         {
           "title": "进入调整模式",
           "text": "进入画面后，点击左下角“调整模式”按钮，按钮变为绿色后进入调整模式。",
           "image": "./assets/images/clamp-platform-step-2-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-2-mobile-v2.webp",
           "alt": "进入调整模式"
         },
         {
           "title": "比对两侧实际数值",
           "text": "观察入口、出口两侧实际编码器数值，确认两侧数值差异。",
           "image": "./assets/images/clamp-platform-step-3-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-3-mobile-v2.webp",
           "alt": "比对两侧实际数值"
         },
         {
           "title": "锁定需要保持的一侧",
           "text": "根据数值，点击单侧“锁定轴 LOCK”进行锁轴；仅对未锁轴侧进行后续调整。",
           "image": "./assets/images/clamp-platform-step-4-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-4-mobile-v2.webp",
           "alt": "锁定需要保持的一侧"
         },
         {
           "title": "微调未锁轴侧位置",
           "text": "对未锁轴处夹紧台进行微调，直至两侧实际值接近，差值约 1 mm。",
           "image": "./assets/images/clamp-platform-step-5-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-5-mobile-v2.webp",
           "alt": "微调未锁轴侧位置"
         },
         {
           "title": "取消锁定并恢复动作",
           "text": "数值调整完成后，取消锁定轴、取消调整模式；回到出入口画面，点击夹紧台位置前后移动，确认故障消除。",
           "image": "./assets/images/clamp-platform-step-6-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-6-mobile-v2.webp",
           "alt": "取消锁定并恢复动作"
         }
       ]
@@ -153,6 +159,7 @@
           "title": "确认需要强制的信号位置",
           "text": "在信号强制画面确定需要强制的信号位置。配图为附件现场原图，红色表示限位信号已处理，灰色表示没有处理；图中状态不能代替现场实际状态确认。",
           "image": "./assets/images/signal-force-screen-lossless-v1.webp",
+          "imagePreview": "./assets/images/signal-force-screen-lossless-v1-preview-mobile-v2.webp",
           "alt": "附件原图：C202焊机限位监测画面，各信号右侧为处理方框，顶部标注红色表示限位信号已处理、灰色表示没有处理"
         },
         {
