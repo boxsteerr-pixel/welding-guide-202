@@ -4,9 +4,9 @@
     "machineId": "202",
     "machineName": "202激光焊机",
     "manualTitle": "操作工快速处置手册",
-    "manualVersion": "0.4.1",
+    "manualVersion": "0.4.2",
     "contentStatus": "已录入3项异常处理、2项日常维护",
-    "lastUpdated": "2026-10-30"
+    "lastUpdated": "2026-11-12"
   },
   "notices": [],
   "faults": [
@@ -211,7 +211,7 @@
     {
       "id": "focus-position-adjustment",
       "title": "修改焦点位置",
-      "summary": "适用设备：401激光焊机。焊接焦点位置发生偏移，需要根据检查结果对操作侧或传动侧焦点位置进行修正时使用。本操作涉及设备补偿参数，应由经过授权的人员执行。",
+      "summary": "适用设备：202激光焊机。焊接焦点位置发生偏移，需要根据检查结果对操作侧或传动侧焦点位置进行修正时使用。本操作涉及设备补偿参数，应由经过授权的人员执行。",
       "keywords": [
         "焦点位置",
         "横向补偿",

@@ -13,7 +13,7 @@ const manifest = JSON.parse(manifestText);
 
 assert.equal(manual.machine.machineId, "202");
 assert.equal(manual.machine.machineName, "202激光焊机");
-assert.equal(manual.machine.manualVersion, "0.4.1");
+assert.equal(manual.machine.manualVersion, "0.4.2");
 assert.deepEqual(manual.faults.map((item) => item.id).sort(), ["clamp-platform-blocked", "laser-source-query", "signal-force-screen"]);
 for (const item of manual.faults) {
   if (item.id === "signal-force-screen") { assert.equal(item.steps.length, 4); assert.equal(item.risk, undefined); await stat(path.join(root, item.steps[0].image)); continue; }
@@ -24,11 +24,12 @@ for (const item of manual.faults) {
   }
 }
 assert.deepEqual(manual.maintenance.map((item) => item.id).sort(), ["focus-position-adjustment", "segment-focus-check"]);
+assert.match(manual.maintenance.find((item) => item.id === "focus-position-adjustment").summary, /适用设备：202激光焊机/);
 for (const item of manual.maintenance) { assert.equal(item.steps.length, 3); for (const step of item.steps) { assert.ok(step.title && step.text && step.image); await stat(path.join(root, step.image)); } }
 assert.deepEqual(manual.safety, []);
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-202-v22"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-202-v23"/);
 assert.match(html, /id="currentTime"/);
 assert.match(html, /system-time\.js\?v=1/);
 assert.match(sw, /system-time\.js\?v=1/);
