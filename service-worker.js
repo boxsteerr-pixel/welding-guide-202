@@ -1,4 +1,4 @@
-const CACHE_NAME = "welding-guide-202-v23";
+const CACHE_NAME = "welding-guide-202-v24";
 const CACHE_PREFIX = "welding-guide-202-";
 const APP_ROOT = new URL("./", self.location.href);
 const CORE_ASSETS = [
