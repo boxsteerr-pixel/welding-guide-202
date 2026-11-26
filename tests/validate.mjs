@@ -13,7 +13,7 @@ const manifest = JSON.parse(manifestText);
 
 assert.equal(manual.machine.machineId, "202");
 assert.equal(manual.machine.machineName, "202激光焊机");
-assert.equal(manual.machine.manualVersion, "0.4.4");
+assert.equal(manual.machine.manualVersion, "0.4.5");
 assert.deepEqual(manual.faults.map((item) => item.id).sort(), ["clamp-platform-blocked", "laser-source-query", "signal-force-screen"]);
 for (const item of manual.faults) {
   if (item.id === "signal-force-screen") { assert.equal(item.steps.length, 4); assert.equal(item.risk, undefined); await stat(path.join(root, item.steps[0].image)); continue; }
@@ -31,7 +31,7 @@ assert.ok(manual.safety.every(item => item.steps.length === 1));
 assert.ok(html.includes("安全销位置识别"));
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-202-v26"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-202-v27"/);
 assert.match(html, /id="currentTime"/);
 assert.match(html, /system-time\.js\?v=1/);
 assert.match(sw, /system-time\.js\?v=1/);
