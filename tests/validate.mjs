@@ -31,7 +31,7 @@ assert.ok(manual.safety.every(item => item.steps.length === 1));
 assert.ok(html.includes("安全销位置识别"));
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-202-v24"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-202-v25"/);
 assert.match(html, /id="currentTime"/);
 assert.match(html, /system-time\.js\?v=1/);
 assert.match(sw, /system-time\.js\?v=1/);
